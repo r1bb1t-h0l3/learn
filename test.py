@@ -276,7 +276,7 @@ import random
 
 # print(ball_location)
 
-#23 Uncrackable
+#23 Uncrackable wc17c3j3
 
 # password = input('> ')
 
@@ -301,24 +301,271 @@ import random
 
 #24 HONI
 
+# def count_sequence(user_input: str) -> int:
 
+#     target_sequence = "HONI"
+#     sequence_index = 0
+#     count = 0
+#     for letter in user_input:
 
-def count_sequence(user_input: str) -> int:
+#         if letter == target_sequence[sequence_index]:
+#             sequence_index += 1
 
-    target_sequence = "HONI"
-    sequence_index = 0
-    count = 0
-    for letter in user_input:
-
-        if letter == target_sequence[sequence_index]:
-            sequence_index += 1
-
-            if sequence_index == len(target_sequence):
-                count += 1
-                sequence_index = 0
+#             if sequence_index == len(target_sequence):
+#                 count += 1
+#                 sequence_index = 0
     
-    return count
+#     return count
    
-user_input = input('> ')
-result = count_sequence(user_input)
-print(result)
+# user_input = input('> ')
+# result = count_sequence(user_input)
+# print(result)
+
+#25 Occupied spaces
+
+# n = int(input('> '))
+# yesterday = input('> ')
+# today = input('> ')
+
+# occupied = 0
+
+# for i in range(len(yesterday)):
+#     if yesterday[i] =='C' and today[i] == "C":
+#         occupied += 1
+
+# print(occupied)
+
+#26 Data Plan
+# monthly_mb = int(input())
+# n = int(input())
+
+# excess = 0
+
+# for i in range(n):
+#     used = int(input())
+#     excess = excess + monthly_mb - used
+
+# print(excess + monthly_mb)
+
+# total = monthly_mb * (n + 1)
+# total_used = 0
+
+# for i in range(n):
+#     used = int(input('> '))
+#     total_used = total_used + used
+
+# print(total - total_used)
+
+#27 English or French ccc11s1
+ 
+# n = input('> ')
+
+# t = 0
+# s = 0
+# for line in range(int(n)):
+#     text = input('> ')
+
+#     for i in range(len(text)):
+#         if text[i] == 'T' or  text[i] == 't':
+#             t += 1
+#         if text[i] == 'S' or text[i] == 's':
+#             s += 1
+
+# print(t)
+# print(s)
+
+# if t > s:
+#     print('English')
+# if s >= t:
+#     print('French')
+
+#28 Multiple Choice ccc11s2
+# number_of_questions = int(input('> '))
+# student = []
+# teacher = []
+# for n in range(number_of_questions):
+#     student_answers = (input('> '))
+#     student.append(student_answers)
+#     print(student)
+# for n in range(number_of_questions):
+#     correct_answers = (input('> '))
+#     teacher.append(correct_answers)
+#     print(teacher)
+
+# correct = 0
+# for i in range(number_of_questions):
+#     if student[i] == teacher[i]:
+#         correct += 1
+
+# print(correct)
+
+#29 lJESTVICA coci12c5p1
+
+# music = input('> ')
+# notes = []
+
+# notes.append(music[0])
+# for i in range(len(music)):
+#     if music[i] == '|':
+#         notes.append(music[i+1])
+
+# A = 0
+# C = 0
+# for i in range(len(notes)):
+#     if notes[i] == 'A':
+#         A += 1
+#     if notes[i] == 'C':
+#         C += 1
+
+# if A > C:
+#     print('A-mol')
+# if A < C:
+#     print('C dur')
+# if A == C:
+#     last_note = music[-1]
+#     print(last_note)
+#     if last_note == 'C':
+#         print('C dur')
+#     else:
+#         print('A mol')
+
+# print(notes)
+
+#30 Rijeci coci18c4p1
+
+# n = int(input('> '))
+
+# sequence = ['A']
+# for i in range(n):
+#     new_sequence = []
+
+#     for letter in sequence:
+#         if letter == 'A':
+#             new_sequence.append('B')
+#         if letter == 'B':
+#             new_sequence.append('B')
+#             new_sequence.append('A')
+    
+#     sequence = new_sequence
+
+# A = 0
+# B = 0
+
+# for i in range(len(sequence)):
+#     if sequence[i] == 'A':
+#         A += 1
+#     if sequence [i] == 'B':
+#         B += 1
+
+# print(A, B)
+
+#31 Elder coci18c4p1
+
+# wizard = input('> ')
+# duels = int(input('> '))
+
+# elder = [wizard]
+# new_wizard = []
+# counter = 1
+# for _ in range(duels):
+    
+#     w1 = input('> ')
+#     w2 = input('> ')
+    
+#     if w2 == wizard:
+#         new_wizard = w1
+#         wizard = new_wizard
+#         counter += 1
+#         elder.append(new_wizard)
+
+# print(elder)
+# print(len(set(elder)))        
+
+#32 Slot machines ccc00s1
+
+# quarters = int(input('> '))
+
+# first = int(input('> '))
+# second = int(input('> '))
+# third = int(input('> '))
+
+# plays = 0
+
+# while quarters >= 1:
+#     machine = plays % 3
+#     quarters -= 1
+ 
+#     if machine == 0:
+#         first += 1
+#         if first % 35 == 0:
+#             quarters += 30
+#     elif machine == 1:
+#         second += 1
+#         if second % 100 == 0:
+#             quarters +=60
+#     elif machine == 2:
+#         third += 1
+#         if third % 10 == 0:
+#             quarters += 9
+
+#     plays += 1
+
+# print(f"Martha plays {plays} times before going broke.")
+
+
+#33 Epidemiology ccc20j2
+
+# P = int(input('> '))
+# N = int(input('> '))
+# R = int(input('> '))
+
+# D = 0
+# while N < P:
+   
+#     N = N*R
+#     print(N)
+
+#     if N <= P:
+#         D += 1
+#         print(D)
+   
+
+# print(D)
+
+#34 Song playlist ccc08j2
+songs = 'ABCDE'
+
+button = 0
+
+while button != 4:
+    button = int(input())
+    presses = int(input())
+    for i in range(presses):
+        if button == 1:
+            songs = songs[1:] + songs[0]
+        elif button == 2:
+            songs = songs[-1] + songs[:-1]
+        elif button == 3:
+            songs = songs[1] + songs[0] + songs[2:]
+    
+output = ''
+
+for song in songs:
+    output = output + song + ' ' 
+
+print(output[:-1])
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
