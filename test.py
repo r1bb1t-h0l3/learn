@@ -533,27 +533,117 @@ import random
 # print(D)
 
 #34 Song playlist ccc08j2
-songs = 'ABCDE'
+# songs = 'ABCDE'
 
-button = 0
+# button = 0
 
-while button != 4:
-    button = int(input())
-    presses = int(input())
-    for i in range(presses):
-        if button == 1:
-            songs = songs[1:] + songs[0]
-        elif button == 2:
-            songs = songs[-1] + songs[:-1]
-        elif button == 3:
-            songs = songs[1] + songs[0] + songs[2:]
+# while button != 4:
+#     button = int(input())
+#     presses = int(input())
+#     for i in range(presses):
+#         if button == 1:
+#             songs = songs[1:] + songs[0]
+#         elif button == 2:
+#             songs = songs[-1] + songs[:-1]
+#         elif button == 3:
+#             songs = songs[1] + songs[0] + songs[2:]
     
-output = ''
+# output = ''
 
-for song in songs:
-    output = output + song + ' ' 
+# for song in songs:
+#     output = output + song + ' ' 
 
-print(output[:-1])
+# print(output[:-1])
+
+#35 AmeriCanadian ccc02j2
+# user_word = ''
+
+# while user_word != 'quit!':
+#     user_word = input('> ')
+#     result = ''
+#     i = 0
+#     vowel = 'aeiouy'
+#     if len(user_word) > 4:
+#         while i < len(user_word):
+#             if user_word[i:i+2] == 'or' and user_word[i-1] not in vowel:
+#                 result += 'our'
+#                 i += 2
+#             else:
+#                 result += user_word[i]
+#                 i += 1
+#     print(result)
+
+#36 Secret sentence coci08c3p2 own solution
+
+# secret = input('> ')
+# not_secret = ''
+# vowels = 'aeiou'
+# i = 0
+
+# while i < len(secret):
+#     if secret[i+2] == secret[i] and secret[i] in vowels:
+#         not_secret += secret[i]
+#         i += 3
+#     else:
+#         not_secret += secret[i]
+#         i += 1
+    
+#     print(not_secret)
+
+#36 Secret sentence coci08c3p2 solution 2
+# sentence = input('> ')
+
+# result = ''
+# i = 0
+
+# while i < len(sentence):
+#     result = result + sentence[i]
+#     if sentence [i] in 'aeiou':
+#         i = i + 3
+#     else:
+#         i = i + 1
+
+# print(result)
+
+#37 Ptice coci08c1p2
+
+# num = int(input('> '))
+# answers = input('> ')
+
+# Adrian = 'ABC'
+# Bruno = 'BABC'
+# Goran = 'CCAABB'
+
+# def repeated_pattern(name, num):
+#     return (name*(num // len(name) + 1 ))[:num]
+    
+
+# def number_of_correct_answers(repeated_pattern, answers):
+#     correct_answers = 0
+#     for i in range(len(answers)):
+#         if answers[i] == repeated_pattern[i]:
+#             correct_answers += 1
+#             i += 1
+
+#     return correct_answers
+
+# adrian_score = number_of_correct_answers(repeated_pattern(Adrian, num), answers)
+# bruno_score = number_of_correct_answers(repeated_pattern(Bruno, num), answers)
+# goran_score = number_of_correct_answers(repeated_pattern(Goran, num), answers)
+
+# max_score = max(adrian_score, bruno_score, goran_score)
+# print(max_score)
+
+#38  Take a Number ecoo13r1p1
+
+
+
+#39 When you eat your smarties ecoo15r1p1
+
+#40 Cold compress ccc19j3
+
+
+
 
 
 
