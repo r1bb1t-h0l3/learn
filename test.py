@@ -636,17 +636,211 @@ import random
 
 #38  Take a Number ecoo13r1p1
 
+# next_number = int(input('> '))
+# status = ''
+# students = 0
+
+# tmp_take = next_number
+# tmp_serve = next_number
+# while status != 'EOF':
+#     status = input('> ')
+    
+    
+#     if status == 'TAKE':
+#         tmp_take += 1
+#         if tmp_take > 999:
+#             tmp_take = 1
+#         students += 1
+#         print(tmp_take)
+#     if status == 'SERVE':
+#         if tmp_serve > 999:
+#             tmp_serve = 1
+#         tmp_serve += 1
+#         print(tmp_serve)
+#     if status == 'CLOSE':
+#         not_served = tmp_take - tmp_serve
+#         if not_served < 0:
+#             not_served += 999
+#         print(students, not_served, tmp_take)
+#         students = 0
 
 
 #39 When you eat your smarties ecoo15r1p1
+# smarties = ''
+
+# time = 0
+# counter = 0
+# while smarties != 'end of box':
+#     smarties = input('> ')
+
+#     counter_tmp = counter
+#     if smarties == 'red':
+#         time += 16
+#     if smarties != 'red':
+#         counter += 1
+#         if counter % 7 == 0:
+#             counter = 0
+#             time +=13
+# print(time)
+
 
 #40 Cold compress ccc19j3
 
+# code = input('> ')
+
+# result= []
+# current_char = code[0]
+# count = 1
+
+# for i in range(1, len(code)):
+#     if current_char == code[i]:
+#         count += 1
+#     else:
+#         result.append(str(count))
+#         result.append(current_char)
+#         current_char = code[i]
+#         count = 1
+
+# result.append(str(count))
+# result.append(current_char)
 
 
+# output = " ".join(result)
+# print(output)
 
+#41 Village neighbourhood ccc18s1
+# n = int(input())
 
+# positions = []
 
+# for i in range(n):
+#     positions.append(int(input()))
+    
+# positions.sort()
+
+# # left = (positions[1] - positions[0]) / 2   -- if not using "HUGE SiZE"
+# # right = (positions[2] - positions[1]) / 2
+# # min_size = left + right
+
+# #if using HUGE SIZE:
+# min_size = 1000000000
+
+# for i in range(1, n-1):
+#     left = (positions[1] - positions[0]) / 2
+#     right = (positions[2] - positions[1]) / 2
+#     size = left + right
+#     if size < min_size:
+#         min_size = size
+
+# print(min_size)
+
+#41 Village neighbourhood min method
+
+# n = int(input('> '))
+# positions = []
+
+# for i in range(n):
+#     positions.append(int(input()))
+
+# positions.sort()
+
+# sizes = []
+
+# for i in range(1, n-1):
+#     left = (positions[i] - positions[i - 1]) / 2
+#     right = (positions[i] - positions[i - 1]) / 2
+#     size = left + right
+#     sizes.append(size)
+
+# min_size = min(sizes)
+# print(min_size)
+
+#42 No Deal Calculator ccc07j3
+# suitcase = []
+
+# n = int(input('> '))
+# for _ in range(n):
+#     suitcase.append(int(input('> ')))
+
+# banker = int(input('> '))
+
+# money = [100, 500, 1000, 5000, 10000, 25000, 50000, 100000, 500000, 1000000]
+
+# for index in sorted(suitcase, reverse=True):
+#     money.pop(index-1)
+    
+# print(money)
+
+# remaining_average = sum(money)/(len(money))
+# print(remaining_average)
+
+# if remaining_average > banker:
+#     print('no deal')
+# else:
+#     print('deal')
+
+#43 School trip ec0017r1p1
+
+# YEAR_COSTS = [12, 10, 7, 5]
+
+# for dataset in range(10):
+#     trip_cost = int(input('> '))
+#     proportions = input().split()
+#     num_students = int(input())
+
+#     for i in range(len(proportions)):
+#         proportions[i] = float(proportions[i])
+        
+#     students_per_year = []
+    
+#     for proportion in proportions:
+#         students = int(num_students * proportion)
+#         students_per_year.append(students)
+
+#     #account for rounding
+#     counted = sum(students_per_year)
+#     uncounted = num_students - counted
+#     most = max(students_per_year)
+#     where = students_per_year.index(most)
+#     students_per_year[where] = students_per_year[where] + uncounted
+
+#     total_raised = 0
+    
+#     for i in range(len(students_per_year)):
+#         total_raised = total_raised + students_per_year[i] * YEAR_COSTS[i]
+        
+#     if total_raised / 2 < trip_cost:
+#         print('YES')
+#     else:
+#         print('NO')
+
+#44 Willow's wild ride ecoo18r1p1
+
+t = int(input('> '))
+n = int(input('> '))
+
+counter = 0
+extra_days = 0
+box_timetable = []
+
+for _ in range(n):
+    box_timetable.append(input('> '))
+    
+
+for value in box_timetable:
+    if value == 'E':
+        extra_days += 1
+    if value == 'B':
+        break
+
+for value in box_timetable:
+    if value == 'B':
+        counter += 1
+
+              
+    
+total_days = abs(n - counter*t) + extra_days
+print(total_days)
 
 
 
