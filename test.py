@@ -893,47 +893,88 @@ import random
 
 #46 Cezar
 
-n = int(input('> '))
+# n = int(input('> '))
 
-column_sequence = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
-grid = []
-for i in range(len(column_sequence)):
-    row = []
-    for j in range(4):
-        row.append(int(column_sequence[i]))
-    grid.append(row)
+# column_sequence = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+# grid = []
+# for i in range(len(column_sequence)):
+#     row = []
+#     for j in range(4):
+#         row.append(int(column_sequence[i]))
+#     grid.append(row)
     
-cesar_cards = []
-for _ in range(n):
-    cesar_card = int(input('> '))
-    cesar_cards.append(cesar_card)
+# cesar_cards = []
+# for _ in range(n):
+#     cesar_card = int(input('> '))
+#     cesar_cards.append(cesar_card)
 
-    for row in grid:
-        if cesar_card in row:
-            row.remove(cesar_card)
+#     for row in grid:
+#         if cesar_card in row:
+#             row.remove(cesar_card)
 
-cesar_sum = sum(cesar_cards)
-difference = 21 - cesar_sum
+# cesar_sum = sum(cesar_cards)
+# difference = 21 - cesar_sum
 
-if difference == 0:
-    print('DOSTA')
-else:
-    count_less = 0
-    count_more = 0
-    for row in grid:
-        for element in row:
-            if element <= difference:
-                count_less += 1
-            else:
-                count_more += 1
+# if difference == 0:
+#     print('DOSTA')
+# else:
+#     count_less = 0
+#     count_more = 0
+#     for row in grid:
+#         for element in row:
+#             if element <= difference:
+#                 count_less += 1
+#             else:
+#                 count_more += 1
 
         
-    if count_more >= count_less:
-        print('DOSTA')
-    else:
-        print('VUCI')
+#     if count_more >= count_less:
+#         print('DOSTA')
+#     else:
+#         print('VUCI')
 
+#47 Preokret coci18c2p1
 
+#48 Babbling brooks
+
+n = int(input('> '))
+
+streams = []
+
+for _ in range(n):
+    streams.append(int(input('> ')))
+
+command = (input('> '))
+
+if command == '99':
+    stream_split = int(input('> '))
+    stream_split_percentage = float(input('> '))
+    value = streams[stream_split-1]
+
+    first_part = value*(stream_split_percentage/100)
+    second_part = value*(1 - (stream_split_percentage/100))
+
+    streams.pop(stream_split-1)
+    streams.insert(stream_split-1, first_part)
+    streams.insert(stream_split, second_part)
+
+    print(streams)
+if command == '88':
+    index = int(input('> '))
+
+    merged_streams = streams[index-1] + streams[index]
+    streams[index-1] = merged_streams
+    streams.pop(index)
+
+    print(streams)
+
+if command == '77':
+    rounded_list = [round(num) for num in streams]
+    ' '.join.streams
+
+print(streams)
+               
+    
 
 
 
