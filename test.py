@@ -816,37 +816,84 @@ import random
 
 #44 Willow's wild ride ecoo18r1p1
 
-t = int(input('> '))
-n = int(input('> '))
+# t = int(input('> '))
+# n = int(input('> '))
 
-counter = 0
-extra_days = 0
-box_timetable = []
 
-for _ in range(n):
-    box_timetable.append(input('> '))
+# willow_busy_until = 0 #last day willow id busy playing with a box
+# total_delay = 0 #total number of days Willow delayed project
+
+# for day in range(1, n+1):
+#     box_timetable = input('>')
+#     if box_timetable == "B":
+#         if day <= willow_busy_until:
+#             willow_busy_until += t # no -1 because willow is already in the process of playing
+#         else:
+#             willow_busy_until = day + t - 1 # -1 because willow starts playing with the box on the same day
+        
+# if willow_busy_until > 0:
+#     total_delay = willow_busy_until - n
+# if total_delay < 0:
+#     total_delay = 0
+
+# print(total_delay)
+
+#Willow's wild ride (list solution)
+
+# t = int(input('> ')) #number of days willow plays with a box
+# n = int(input('> ')) #number of days till project is due
+
+# willow_boxes = [] #list to track number of days willow is busy with each box
+# total_delay = 0 #total number of days Willow delayed project
+
+# for day in range(n):
+#     box_timetable = input('> ')
+
+#     #decrement number of play days for each box in the list
+#     willow_boxes = [days_left - 1 for days_left in willow_boxes if days_left - 1 > 0]
+
+#     if box_timetable == "B":
+#         #mandy brings new box, add 't' days for this box
+#         willow_boxes.append(t)
+
+#     #count total delay (number of boxes willow is still playing with)
+#     total_delay += len(willow_boxes)
+
+# print(total_delay)
+
+#45 Baker Bonus ecoo17r3p1
+
+for dataset in range(10):
+    lst = input().split()
+    franchisees = int(lst[0])
+    days = int(lst[1])
+    grid = []
+
+    for i in range(days):
+        row = input().split()
+        for j in range(franchisees):
+            row[j] = int(row[j])
+        grid.append(row)
+
+    bonuses = 0
+    
+    for row in grid:
+        total = sum(row)
+        if total % 13 == 0:
+            bonuses = bonuses + total // 13
+
+    for col_index in range(franchisees):
+        total = 0
+        for row_index in range(days):
+            total = total + grid[row_index][col_index]
+        if total % 13 == 0:
+            bonuses = bonuses + total // 13
+
+    print(bonuses)
+
     
 
-for value in box_timetable:
-    if value == 'E':
-        extra_days += 1
-    if value == 'B':
-        break
 
-for value in box_timetable:
-    if value == 'B':
-        counter += 1
-
-              
-    
-total_days = abs(n - counter*t) + extra_days
-print(total_days)
-
-
-
-    
-
-    
 
 
 
