@@ -863,35 +863,81 @@ import random
 
 #45 Baker Bonus ecoo17r3p1
 
-for dataset in range(10):
-    lst = input().split()
-    franchisees = int(lst[0])
-    days = int(lst[1])
-    grid = []
+# for dataset in range(10):
+#     lst = input().split()
+#     franchisees = int(lst[0])
+#     days = int(lst[1])
+#     grid = []
 
-    for i in range(days):
-        row = input().split()
-        for j in range(franchisees):
-            row[j] = int(row[j])
-        grid.append(row)
+#     for i in range(days):
+#         row = input().split()
+#         for j in range(franchisees):
+#             row[j] = int(row[j])
+#         grid.append(row)
 
-    bonuses = 0
+#     bonuses = 0
     
+#     for row in grid:
+#         total = sum(row)
+#         if total % 13 == 0:
+#             bonuses = bonuses + total // 13
+
+#     for col_index in range(franchisees):
+#         total = 0
+#         for row_index in range(days):
+#             total = total + grid[row_index][col_index]
+#         if total % 13 == 0:
+#             bonuses = bonuses + total // 13
+
+#     print(bonuses)
+
+#46 Cezar
+
+n = int(input('> '))
+
+column_sequence = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+grid = []
+for i in range(len(column_sequence)):
+    row = []
+    for j in range(4):
+        row.append(int(column_sequence[i]))
+    grid.append(row)
+    
+cesar_cards = []
+for _ in range(n):
+    cesar_card = int(input('> '))
+    cesar_cards.append(cesar_card)
+
     for row in grid:
-        total = sum(row)
-        if total % 13 == 0:
-            bonuses = bonuses + total // 13
+        if cesar_card in row:
+            row.remove(cesar_card)
 
-    for col_index in range(franchisees):
-        total = 0
-        for row_index in range(days):
-            total = total + grid[row_index][col_index]
-        if total % 13 == 0:
-            bonuses = bonuses + total // 13
+cesar_sum = sum(cesar_cards)
+difference = 21 - cesar_sum
 
-    print(bonuses)
+if difference == 0:
+    print('DOSTA')
+else:
+    count_less = 0
+    count_more = 0
+    for row in grid:
+        for element in row:
+            if element <= difference:
+                count_less += 1
+            else:
+                count_more += 1
 
-    
+        
+    if count_more >= count_less:
+        print('DOSTA')
+    else:
+        print('VUCI')
+
+
+
+
+
+
 
 
 
