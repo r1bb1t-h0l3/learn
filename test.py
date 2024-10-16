@@ -973,7 +973,6 @@ for _ in range(points_A):
     scores_A = int(input())
     seconds_A.append(scores_A)
 
-print(seconds_A)
 
 seconds_B=[]
 points_B = int(input())
@@ -981,7 +980,6 @@ for _ in range(points_B):
     scores_B = int(input())
     seconds_B.append(scores_B)
 
-print(seconds_B)
 
 full_game = 4*12*60
 half_game = full_game/2
@@ -1001,23 +999,44 @@ total_points = total_pointsA + total_pointsB
 
 total_scores = points_A + points_B
 
-print(total_scores)
 
 scoreA = 0
 scoreB = 0
 turnarounds = 0
+prev_leader = ''
+current_leader = ''
 
-for i in range(total_scores):
-    if seconds_A[i] < seconds_B[i]:
+for i in range(full_game):
+    second = i + 1
+    if second in seconds_A:
         scoreA += 1
-    if seconds_B[i] < seconds_A[i]:    
+    if second in seconds_B:
         scoreB += 1
-    print(scoreA, scoreB)
-    if scoreA - scoreB != 0 or scoreB - scoreA != 0:
+    if scoreA > scoreB:
+        current_leader = 'A'
+    elif scoreB > scoreA:
+        current_leader = 'B'
+    else:
+        current_leader = ''
+    if current_leader != '' and current_leader != prev_leader:
         turnarounds += 1
-        print(turnarounds)
+        prev_leader = current_leader
 
-print(turnarounds)
+print(total_scores)        
+print(max(0, turnarounds - 1))
+
+
+# for i in range(total_scores):
+#     if seconds_A[i] < seconds_B[i]:
+#         scoreA += 1
+#     if seconds_B[i] < seconds_A[i]:    
+#         scoreB += 1
+#     print(scoreA, scoreB)
+#     if scoreA - scoreB != 0 or scoreB - scoreA != 0:
+#         turnarounds += 1
+#         print(turnarounds)
+
+#print(turnarounds)
 
 
 
@@ -1066,36 +1085,40 @@ print(turnarounds)
 
 #49 Free Shirts ecoo19r1p1
 
-# for dataset in range(10):
+# result = []
 
+# for dataset in range(10):
 #     first_line = input().split()
 #     clean_shirts = int(first_line[0])
 #     number_of_events = int(first_line[1])
-#     number_or_days = int(first_line[2])
+#     number_of_days = int(first_line[2])
 
 #     event_days = []
-#     for _ in range(number_of_events):
-#         days = input().strip().split()
-#         for day in days:
-#             event_days.append(int(day))
+#     days = input().split()
+#     for day in days:
+#         event_days.append(int(day))
  
 
 #     laundry_days = 0
 #     total_shirts = clean_shirts
 #     grand_total_shirts = clean_shirts
    
-#     for day in range(number_or_days):
+#     for day in range(number_of_days):
      
 #         if clean_shirts == 0:    
 #             laundry_days += 1
 #             clean_shirts = grand_total_shirts
-#         if (day+1) in event_days:
-#             clean_shirts += 1 
-#             grand_total_shirts += 1
-#         if clean_shirts >= 1:
-#             clean_shirts -= 1    
+#         for eventDay in event_days:
+#             if eventDay == (day+1):
+#                 clean_shirts += 1 
+#                 grand_total_shirts += 1
+       
+#         clean_shirts -= 1    
+    
+#     result.append(laundry_days)
 
-#     print(laundry_days)
+# for r in result:
+#     print(r)
 
 
 
