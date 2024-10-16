@@ -840,14 +840,14 @@ import random
 
 #Willow's wild ride (list solution)
 
-# t = int(input('> ')) #number of days willow plays with a box
-# n = int(input('> ')) #number of days till project is due
+# t = int(input()) #number of days willow plays with a box
+# n = int(input()) #number of days till project is due
 
 # willow_boxes = [] #list to track number of days willow is busy with each box
 # total_delay = 0 #total number of days Willow delayed project
 
 # for day in range(n):
-#     box_timetable = input('> ')
+#     box_timetable = input()
 
 #     #decrement number of play days for each box in the list
 #     willow_boxes = [days_left - 1 for days_left in willow_boxes if days_left - 1 > 0]
@@ -861,12 +861,43 @@ import random
 
 # print(total_delay)
 
+# def willow_delay(t, n, boxes_by_days):
+#     total_delay = 0 #total number of days Willow delayed project
+
+#     for box_timetable in boxes_by_days:
+#         total_delay = max(total_delay - 1, 0)
+#         if box_timetable == "B":
+#             total_delay += t
+        
+#     total_delay = max(total_delay - 1, 0)
+#     return total_delay
+
+# def delay_couter_main():
+#     all_delays = []
+    
+#     for _ in range(10):
+#         first_line = input().split()
+#         t = int(first_line[0])
+#         n = int(first_line[1])
+#         boxes_by_days = []
+
+#         for i in range(n):
+#             row = input()
+#             boxes_by_days.append(row)
+        
+#         all_delays.append(willow_delay(t, n, boxes_by_days))
+    
+#     for delay in all_delays:
+#         print(delay)
+
+# delay_couter_main()
+
 #45 Baker Bonus ecoo17r3p1
 
 # for dataset in range(10):
-#     lst = input().split()
-#     franchisees = int(lst[0])
-#     days = int(lst[1])
+#     first_line = input().split()
+#     franchisees = int(first_line[0])
+#     days = int(first_line[1])
 #     grid = []
 
 #     for i in range(days):
@@ -935,46 +966,137 @@ import random
 
 #47 Preokret coci18c2p1
 
-#48 Babbling brooks
 
-n = int(input('> '))
+seconds_A = []
+points_A = int(input())
+for _ in range(points_A):
+    scores_A = int(input())
+    seconds_A.append(scores_A)
 
-streams = []
+print(seconds_A)
 
-for _ in range(n):
-    streams.append(int(input('> ')))
+seconds_B=[]
+points_B = int(input())
+for _ in range(points_B):
+    scores_B = int(input())
+    seconds_B.append(scores_B)
 
-command = (input('> '))
+print(seconds_B)
 
-if command == '99':
-    stream_split = int(input('> '))
-    stream_split_percentage = float(input('> '))
-    value = streams[stream_split-1]
+full_game = 4*12*60
+half_game = full_game/2
 
-    first_part = value*(stream_split_percentage/100)
-    second_part = value*(1 - (stream_split_percentage/100))
+total_pointsA = 0
+total_pointsB = 0
 
-    streams.pop(stream_split-1)
-    streams.insert(stream_split-1, first_part)
-    streams.insert(stream_split, second_part)
+for time in seconds_A:
+    if time <= half_game:
+        total_pointsA += 1
+        
+for time in seconds_B:
+    if time <= half_game:
+        total_pointsB += 1
+        
+total_points = total_pointsA + total_pointsB
 
-    print(streams)
-if command == '88':
-    index = int(input('> '))
+total_scores = points_A + points_B
 
-    merged_streams = streams[index-1] + streams[index]
-    streams[index-1] = merged_streams
-    streams.pop(index)
+print(total_scores)
 
-    print(streams)
+scoreA = 0
+scoreB = 0
+turnarounds = 0
 
-if command == '77':
-    rounded_list = [round(num) for num in streams]
-    ' '.join.streams
+for i in range(total_scores):
+    if seconds_A[i] < seconds_B[i]:
+        scoreA += 1
+    if seconds_B[i] < seconds_A[i]:    
+        scoreB += 1
+    print(scoreA, scoreB)
+    if scoreA - scoreB != 0 or scoreB - scoreA != 0:
+        turnarounds += 1
+        print(turnarounds)
 
-print(streams)
-               
-    
+print(turnarounds)
+
+
+
+#48 Babbling brooks ccc00s2
+
+# n = int(input('> '))
+
+# streams = []
+
+# for _ in range(n):
+#     streams.append(int(input()))
+
+# command = 0
+
+# while True:
+#     command = (input())
+
+#     if command == '99':
+#         stream_split = int(input())
+#         stream_split_percentage = float(input())
+#         value = streams[stream_split-1]
+
+#         first_part = value*(stream_split_percentage/100)
+#         second_part = value*(1 - (stream_split_percentage/100))
+
+#         streams.pop(stream_split-1)
+#         streams.insert(stream_split-1, first_part)
+#         streams.insert(stream_split, second_part)
+
+#     if command == '88':
+#         index = int(input())
+
+#         merged_streams = streams[index-1] + streams[index]
+#         streams[index-1] = merged_streams
+#         streams.pop(index)
+
+
+#     if command == '77':
+#         break
+
+# rounded_streams = [round(num) for num in streams]
+# print(*rounded_streams)
+
+
+
+
+#49 Free Shirts ecoo19r1p1
+
+# for dataset in range(10):
+
+#     first_line = input().split()
+#     clean_shirts = int(first_line[0])
+#     number_of_events = int(first_line[1])
+#     number_or_days = int(first_line[2])
+
+#     event_days = []
+#     for _ in range(number_of_events):
+#         days = input().strip().split()
+#         for day in days:
+#             event_days.append(int(day))
+ 
+
+#     laundry_days = 0
+#     total_shirts = clean_shirts
+#     grand_total_shirts = clean_shirts
+   
+#     for day in range(number_or_days):
+     
+#         if clean_shirts == 0:    
+#             laundry_days += 1
+#             clean_shirts = grand_total_shirts
+#         if (day+1) in event_days:
+#             clean_shirts += 1 
+#             grand_total_shirts += 1
+#         if clean_shirts >= 1:
+#             clean_shirts -= 1    
+
+#     print(laundry_days)
+
 
 
 
