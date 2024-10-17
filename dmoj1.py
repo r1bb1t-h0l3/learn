@@ -967,63 +967,6 @@ import random
 #47 Preokret coci18c2p1
 
 
-seconds_A = []
-points_A = int(input())
-for _ in range(points_A):
-    scores_A = int(input())
-    seconds_A.append(scores_A)
-
-
-seconds_B=[]
-points_B = int(input())
-for _ in range(points_B):
-    scores_B = int(input())
-    seconds_B.append(scores_B)
-
-
-full_game = 4*12*60
-half_game = full_game/2
-
-total_pointsA = 0
-total_pointsB = 0
-
-for time in seconds_A:
-    if time <= half_game:
-        total_pointsA += 1
-        
-for time in seconds_B:
-    if time <= half_game:
-        total_pointsB += 1
-        
-total_points = total_pointsA + total_pointsB
-
-total_scores = points_A + points_B
-
-
-scoreA = 0
-scoreB = 0
-turnarounds = 0
-prev_leader = ''
-current_leader = ''
-
-for i in range(full_game):
-    second = i + 1
-    if second in seconds_A:
-        scoreA += 1
-    if second in seconds_B:
-        scoreB += 1
-    if scoreA > scoreB:
-        current_leader = 'A'
-    elif scoreB > scoreA:
-        current_leader = 'B'
-    else:
-        current_leader = ''
-    if current_leader != '' and current_leader != prev_leader:
-        turnarounds += 1
-        prev_leader = current_leader
-
-print(total_scores)        
-print(max(0, turnarounds - 1))
 
 
 # for i in range(total_scores):
@@ -1037,8 +980,6 @@ print(max(0, turnarounds - 1))
 #         print(turnarounds)
 
 #print(turnarounds)
-
-
 
 #48 Babbling brooks ccc00s2
 
@@ -1081,8 +1022,6 @@ print(max(0, turnarounds - 1))
 # print(*rounded_streams)
 
 
-
-
 #49 Free Shirts ecoo19r1p1
 
 # result = []
@@ -1120,14 +1059,41 @@ print(max(0, turnarounds - 1))
 # for r in result:
 #     print(r)
 
+#50 Tides dmopc14c7p2
+
+# number_of_measurements = int(input())
+
+# measurements = list(map(int, input().split()))
+
+# min_value = measurements[0]
+# index_min_value = 0
+# unknown_value = False
+# max_value = 0
+# min_value = min(measurements)
 
 
+# for i in range(0, len(measurements)):
 
+#     if min_value == measurements[i]:
+#         index_min_value = i
+#         break
 
+# for i in range(index_min_value, len(measurements)):
 
+#     if measurements[i] > max_value:
+#         max_value = measurements[i]
+#         index_max_value = i
+    
 
+# for i in range(index_min_value + 1, index_max_value + 1):
+#     if measurements[i] <= measurements[i-1]:
+#         unknown_value = True
+#         break
 
-
+# if min_value == max_value or unknown_value == True:
+#     print("unknown")
+# else:
+#     print(max_value - min_value)
 
 
 
