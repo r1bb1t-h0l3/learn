@@ -277,7 +277,7 @@
 #         print('NO')
 
 
-#56 From 1987 to 2013 ccc13s1
+# 56 From 1987 to 2013 ccc13s1
 
 # def digit_same(year) -> bool:
 #     return len(set(year)) != len(year)
@@ -285,16 +285,249 @@
 # input_year = int(input())
 # year = str(input_year + 1)
 
-# while digit_same(year):
+# while digit_same(year):       #while always default True
 #     num_year = int(year)
 #     num_year += 1
 #     year = str(num_year)
 
 # print(year)
 
-number = '762'
 
-for digit1 in number:
-    for digit2 in number:
-        if digit1 == digit2:
-            print(digit1, digit2)
+#from 1987 to 2013 var2
+# def same_digit(numberInt):
+#     number = str(curentNumber)
+#     for i in range(len(number)):
+#         for j in range(len(number)):
+#             if i != j and number[i] == number[j]:
+#                 return True
+    
+#     return False
+
+
+# initialNumber = int(input())
+
+# curentNumber = initialNumber + 1
+ 
+
+# while same_digit(curentNumber):
+#     curentNumber += 1
+
+# print(curentNumber)
+
+#are we nearly there yet? ccc18j3
+
+# dist_input = input()
+# dist_lst = dist_input.split()
+
+# def distance_table(dist_lst):
+#     num1 = int(dist_lst[0])
+#     num2 = int(dist_lst[1])
+#     num3 = int(dist_lst[2])
+#     num4 = int(dist_lst[3])
+#     print(0, num1, num1 + num2, num1 + num2 + num3, num1 + num2 + num3 + num4 )
+#     print(num1 + 0, 0, num2, num2 + num3, num2 + num3 + num4)
+#     print(num1 + num2, num2, 0, num3, num3 + num4)
+#     print(num1 + num2 + num3, num2 + num3, num3, 0, num4)
+#     print(num1 + num2 + num3 + num4, num2 + num3 + num4, num3 + num4, num4, 0)
+    
+
+# distance_table(dist_lst)
+    
+
+#number reversals 
+# # 1 - using "range"       
+# numbers = [1, 2, 3, 4, 5]
+
+# reversed_numbers = []
+
+# for i in range(len(numbers) -1, -1, -1):
+#     reversed_numbers.append(numbers[i])
+
+# print(reversed_numbers)
+
+# #2 using while loop (requies "tuple unpacking" for numbers[start], numbers[end] = numbeers[end], numbers[start])
+
+# numbers = [1, 2, 3, 4, 5]
+
+# start = 0
+# end = len(numbers) - 1
+
+# #swap elements until pointers meet in the middle
+
+# while start > end:
+#     #swap elements at start and end
+#     numbers[start], numbers[end] = numbers[end], numbers[start]
+#     #move pointers towards center
+#     start +=1
+#     end -=1
+
+# print(numbers)
+
+# #3 reversing a number without converting to string
+# num = 12345
+# reversed_num = 0
+
+# while num > 0:
+#     #extract the last digit
+#     last_digit = num % 10
+#     #shift reversed_num left and add last digit
+#     reversed_num = reversed_num * 10 + last_digit
+#     num //= 10
+
+# print(reversed_num)
+
+#57 Decoding DNA - ecoo12r1p2
+
+# def DNA_data() -> list:
+#     DNA_list = []
+
+#     while len(DNA_list) < 5:
+#         DNA_string = input()
+#         DNA_list.append(DNA_string)
+#     return DNA_list
+    
+
+# # identify TATAAT promotr and return start of transcription index
+# def start_of_transcription(DNA_string: str) -> int:
+#     index = DNA_string.find("TATAAT")
+#     if index != -1:
+#         # find returns -1 if no such string found, so we can control for this case
+#         start_of_transcription = index + 10
+#         return start_of_transcription
+#     else:
+#         print("promoter not found in strand")
+#         return -1
+            
+# #save transcription_units
+# def transcription_units(DNA_data, start_of_transcription) -> list:
+#     transcription_units =[]
+#     for strand in DNA_data:
+#         transcription_unit = strand[start_of_transcription:]
+#         transcription_units.append(transcription_unit)
+#     return transcription_units
+
+
+# def complementary_reversed(sequence):    
+#     complement = {"A": "T", "T": "A", "C": "G", "G": "C"}
+#     complement_sequence = "".join(complement[base] for base in sequence)
+#     return complement_sequence[::-1]
+
+
+# # identify base 6 terminator sequence
+# def end_of_transcription(transcription_units) -> int:
+#     length = 6 #length of terminatro sequence
+#     end_of_transcription = None
+
+#     for i in range(len(transcription_units)):
+#         # extract candidate with base 6
+#         candidate = transcription_units[i:i + length]
+#         complementary_rev = complementary_reversed(candidate)
+
+#         #search for this complementary reversed sequence after the candidate sequence
+#         found_index = transcription_units.find(complementary_rev, i + length)
+
+#         if found_index != -1:
+#             end_of_transcription = found_index
+#             break
+        
+#     #if no valid terminator found transcripton ends at end of strand
+#     if end_of_transcription is None:
+#         print("no terminator sequences found")
+
+#     return end_of_transcription
+  
+# #convert RNA              
+# def get_RNA(transcription_units, end_of_transcription):
+#     if end_of_transcription is not None:
+#         rna_code = {"A":"U","U":"A","C":"G","G":"C"}
+
+#         # get transcription unit segment
+#         dna_segment = transcription_units[:end_of_transcription]
+
+#         # convert DNA to RNA
+#         rna_result = "".join(rna_code[base] for base in dna_segment)
+#         return rna_result
+    
+#     else:
+#         print("no end of transcription found")
+#         return None
+
+# #Main program
+# dna_strings_lst = DNA_data()
+# print(start_of_transcription(dna_strings_lst))
+
+
+#58 16 bit s/w only
+
+# nr_lines = int(input())
+
+# for _ in range(nr_lines):
+#     data = input().split(" ")
+#     data_int = list(map(int, data))
+#     if data_int[0] * data_int[1] == data_int[2]:
+#         print("POSSIBLE DOUBLE SIGMA")
+#     else:
+#         print("16 BIT S/W ONLY")
+
+#59 Mispelling
+# n = int(input())
+# output = []
+# for _ in range(n):
+#     data = input().split(" ")
+#     data_lst = list(map(str, data))
+#     number = int(data_lst[0]) - 1
+#     word = " ".join(data_lst[1:])
+#     updated_word = word[:number] + word[number + 1:]
+#     output.append(updated_word)
+    
+
+# for i in range(0, len(output)):
+#     word = output[i]
+#     print(f"{i + 1} {word}")
+    
+#60 Mirrored pairs
+# def check_mirrored_pairs():
+
+#     print("Ready")
+
+#     mirrored_pairs = {("b", "d"), ("d", "b"), ("p", "q"), ("q", "p") }
+#     while True:
+        
+#         user_input = input()
+#         if user_input == "  ":
+#             break
+#         if len(user_input) != 2:
+#             continue
+#         char1, char2 = user_input[0], user_input[1]
+
+#         if (char1, char2) in mirrored_pairs:
+#             print("Mirrored pair")
+#         else:
+#             print("Ordinary Pair")
+
+# check_mirrored_pairs()
+
+#61 Sorting
+n = int(input())
+
+lst = []
+def sort(n):
+    for i in range(n):
+        nr = int(input())
+        lst.append(nr)
+
+    for i in range(1, len(lst)):
+        key = lst[i]
+        j = i - 1
+        while j >= 0 and lst[j] > key:
+            lst[j + 1] = lst[j]
+            j -= 1
+        lst[j+1] = key 
+    
+
+sort(n)
+
+for item in lst:
+    print(item)
+
+
