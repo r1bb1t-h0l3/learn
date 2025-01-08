@@ -508,26 +508,231 @@
 # check_mirrored_pairs()
 
 #61 Sorting
-n = int(input())
+# n = int(input())
 
-lst = []
-def sort(n):
-    for i in range(n):
-        nr = int(input())
-        lst.append(nr)
+# lst = []
+# def sort(n):
+#     for i in range(n):
+#         nr = int(input())
+#         lst.append(nr)
 
-    for i in range(1, len(lst)):
-        key = lst[i]
-        j = i - 1
-        while j >= 0 and lst[j] > key:
-            lst[j + 1] = lst[j]
-            j -= 1
-        lst[j+1] = key 
+#     for i in range(1, len(lst)):
+#         key = lst[i]
+#         j = i - 1
+#         while j >= 0 and lst[j] > key:
+#             lst[j + 1] = lst[j]
+#             j -= 1
+#         lst[j+1] = key 
     
 
-sort(n)
+# sort(n)
 
-for item in lst:
-    print(item)
+# for item in lst:
+#     print(item)
 
+#62 Alpaca shapes - aac1p1
 
+# user_input = input().split(" ")
+# user_input_num = list(map(int, user_input))
+
+# length, radius = user_input_num[0], user_input_num[1]
+
+# def area_sq(length):
+#     area_sq = length*length
+#     return area_sq
+
+# def area_c(radius):
+#     area_c = radius*radius*3.14
+#     return area_c
+
+# square = area_sq(length)
+# circle = area_c(radius)
+
+# if square > circle:
+#     print("SQUARE")
+# else:
+#     print("CIRCLE")
+
+#63 Koala Matchmaking
+
+# usr_input = int(input())
+
+# def max_int(usr_input):
+#     num1 = (usr_input * 2 - 1)/2
+#     num2 = (usr_input * 2 - 2)/2
+
+#     if num1.is_integer():
+#         print(int(num1))
+
+#     if num2.is_integer():
+#         print(int(num2))
+    
+# max_int(usr_input)
+
+#64 Monkey Shopping
+
+# usr_inpt = input().split(" ")
+# num_inpt = list(map(int, usr_inpt))
+
+# sugar = num_inpt[0]
+# sugar_need = num_inpt[1]
+# toothpaste = num_inpt[2]
+# toothpaste_need = num_inpt[3]
+
+# if sugar_need > sugar and toothpaste_need > toothpaste:
+#     print("Go to the department store")
+
+# elif sugar_need > sugar: 
+#     print("Go to the grocery store")
+
+# elif toothpaste_need > toothpaste:
+#     print("Go to the pharmacy")
+
+# else:
+#     print("Stay home")
+
+# 65 Bamboo cookies aac5p1
+
+# n = int(input())
+# cookies = input().split(" ")
+# int_cookies = list(map(int, cookies))
+
+# counter = 0
+# i = 0
+
+# while i < len(int_cookies)-1:
+#     j=i+1
+#     while int_cookies[i] > 0 and j < len(int_cookies):
+#         if int_cookies[j] > 0 and (int_cookies[i] + int_cookies[j]) % 2 == 0:
+#             counter += 1
+#             int_cookies[j] = 0
+#             int_cookies[i] = 0
+#             break
+#         else:
+#             j += 1
+#     i += 1
+
+# print(counter)
+
+#66 Squirrnect
+# n = int(input())
+
+# dimensions = []
+# for _ in range(n):
+#     line = input().split(" ")
+#     dimensions.append(list(map(int, line)))
+
+# output = []
+# for w, h in dimensions:
+#     if w < 4 and h < 4:
+#         output.append("bad")
+#     elif w == 1:
+#         output.append("bad")
+#     elif h == 1 and w < 7:
+#         output.append("bad")
+#     else:
+#         output.append("good")
+
+# print("\n".join(output))
+
+#67 Darcy's debilitating demands ac19p1
+# def read_input() -> list:
+#     T = int(input())
+
+#     sets = []
+    
+#     for _ in range(T):
+#         subsets = []
+#         for _ in range(4):
+#             num = int(input())
+#             subsets.append(num)
+        
+#         sets.append(subsets)
+    
+#     return sets
+
+# def sum_to_n(set):
+#     N, A, B, C = set[0], set[1], set[2], set[3]
+
+#     if C >= N:
+#         return [0, 0, N]
+#     elif B + C >= N:
+#         return [0, N-C, C]
+#     elif A + B + C >= N:
+#         return [N - B - C, B, C]
+    
+#     return [-1]
+
+# user_input = read_input()
+
+# for input in user_input:
+#     results = sum_to_n(input)
+#     results_str = (str(num) for num in results)
+#     print(' '.join(results_str))
+
+# 68 Appleby Contest '20 P1 - Terrific Triangles ac20p1
+
+# def read_input():
+
+#     usr_inpt = int(input())
+
+#     data = []
+#     for _ in range(usr_inpt):
+#         inpt = input().split(" ")
+#         int_inpt = list(map(int, inpt))
+#         data.append(int_inpt)
+
+#     return data
+
+# def type_triangle(data):
+    
+#     type_tri = []
+
+#     for i in range(len(data)):
+#         a, b, c = sorted(data[i])
+#         if c**2 == (a**2 + b**2):
+#             type_tri.append("R")
+#         elif c**2 < (a**2 + b**2):
+#             type_tri.append("A")
+#         else:
+#             type_tri.append("O")
+#     return type_tri
+
+# input_data = read_input()
+# output = type_triangle(input_data)
+
+# for i in output:
+#     print(i)
+
+# 69 Another Contest 5 Problem 1 - Goat Fence - acc5p1
+# inpt = int(input())
+
+# outpt = 2*inpt + 2
+# print(outpt)
+
+#70 Another Contest 7 Problem 1 - Lonely Users - acc7p1
+# def read_input():    
+#     inpt = int(input())
+
+#     data = []
+#     for _ in range(inpt):
+#         n = int(input())
+#         data.append(n)
+    
+#     return data
+
+# def calculate_friends(data):
+#     friends = []
+#     for i in range(len(data)):
+#         if data[i] == 2:
+#             friends.append(2)
+#         else:
+#             friend_nr = data[i] - 1
+#             friends.append(friend_nr)
+#     return friends
+
+# inpt = read_input()
+# friends = calculate_friends(inpt)
+
+# for f in friends:
+#     print(f)

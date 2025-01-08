@@ -68,16 +68,14 @@ def main():
     rows, cols = rows_columns_input()
 
     matrix = seat_matrix_input(rows)
-    print(matrix)
     
     no_mirko_hand = handshakes(matrix, rows, cols)
 
     mirko_hand = mirko_handshakes(matrix, rows, cols)
 
-    if "." not in rows:
-        print(no_mirko_hand)
-    else:
-        print(mirko_hand)
+    total_handshakes = no_mirko_hand + mirko_hand
+
+    print(total_handshakes)
 
 if __name__ == "__main__":
     main()

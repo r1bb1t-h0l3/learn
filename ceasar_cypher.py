@@ -26,7 +26,7 @@ while True: #keep asking until user enters either 'e' or 'd'.
 
 #Let the user enter the key to use:
 while True:#Keep asking until user enters valid key.
-    maxKey = len(SYMBOLS) -1 #otherwise to shift would take place
+    maxKey = len(SYMBOLS) -1 #otherwise shift would take place
     print('Please enter the key (0 to {}) to use.'.format(maxKey))
     response = input('> ').upper() 
     if not response.isdecimal():#check that key is not a decimal number
