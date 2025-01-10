@@ -736,3 +736,167 @@
 
 # for f in friends:
 #     print(f)
+
+#71 DMOJ problem crci06p1, Bard
+
+# def find_all_song_knowers(number_of_villagers, evening_data):
+#     all_songs = set()
+#     villagers = {i:set() for i in range(1, number_of_villagers + 1)} 
+
+#     for evening in evening_data:
+#         present_villagers = evening[1:]
+#         if 1 in present_villagers:
+#             new_song = len(all_songs) + 1
+#             all_songs.add(new_song)
+
+#             for villager in present_villagers:
+#                 villagers[villager].add(new_song)
+#         else:
+#             shared_songs = set()
+#             for villager in present_villagers:
+#                 shared_songs.update(villagers[villager])
+#             for villager in present_villagers:
+#                 villagers[villager].update(shared_songs)
+
+#     know_all_songs = sorted([villager for villager, songs in villagers.items() if songs == all_songs])
+    
+#     return know_all_songs
+
+# number_of_villagers = int(input())
+# number_of_evenings = int(input())
+
+# evening_data = []
+
+# for _ in range(number_of_evenings):
+#     data = list(map(int, input().split()))
+#     evening_data.append(data)
+
+# result = find_all_song_knowers(number_of_villagers, evening_data)
+# for villager in result:
+#     print(villager)
+
+#72 DMOJ problem dmopc19c5p1, Conspicuous Cryptic Checklist
+# data = list(map(int, input().split()))
+
+# number_of_items, number_of_assignments = data
+
+# tzak_items = set()
+# for _ in range(number_of_items):
+#     item = input().strip()
+#     tzak_items.add(item)
+
+
+# completed_assignments = 0
+# for _ in range(number_of_assignments):
+#     required_items = int(input())
+#     required_item_set = set()
+
+#     for _ in range(required_items):
+#         required_item_name = input().strip()
+#         required_item_set.add(required_item_name)
+
+#     if required_item_set <= tzak_items:
+#         completed_assignments += 1
+
+# print(completed_assignments)
+
+# 73 DMOJ problem coci15c2p1, Marko
+# number_of_words = int(input())
+# lst_of_words = []
+
+# for i in range(number_of_words):
+#     word = input()
+#     lst_of_words.append(word)
+
+# t9_input = input()
+
+# t9_map = {
+#     'a': '2', 'b': '2', 'c': '2',
+#     'd': '3', 'e': '3', 'f': '3',
+#     'g': '4', 'h': '4', 'i': '4',
+#     'j': '5', 'k': '5', 'l': '5',
+#     'm': '6', 'n': '6', 'o': '6',
+#     'p': '7', 'q': '7', 'r': '7', 's': '7',
+#     't': '8', 'u': '8', 'v': '8',
+#     'w': '9', 'x': '9', 'y': '9', 'z': '9'
+# }
+
+# def convert_to_t9(lst_of_words: list[str], t9_map: dict) -> list[str]:
+#     t9_list = []
+#     for word in lst_of_words:
+#         t9_representation = ''.join(t9_map[letter] for letter in word)
+#         t9_list.append(t9_representation)
+#     return t9_list
+    
+# t9_converted = convert_to_t9(lst_of_words, t9_map)
+
+# matching_words = sum(1 for t9_word in t9_converted if t9_word == t9_input)
+
+# print(matching_words)
+
+# 74 DMOJ problem ccc06s2, Attack of the CipherTexts
+
+plaintext = input()
+ciphertext = input()
+coded_message = input()
+
+def decode_cipher(plaintext:str, ciphertext:str) -> str:
+    mapping = {}
+    
+    
+    #here can also use zip liike so:
+    # for pt_char, ct_char in zip(plaintext, ciphertext)
+    # mapping[ct_char] = pt_char
+    for i in range(len(plaintext)):
+        pt_char = plaintext[i]
+        ct_char = ciphertext[i]
+        mapping[ct_char] = pt_char
+    print(mapping)    
+
+        # decode coded_message
+    decoded_message = []
+
+    for char in coded_message:
+        if char in mapping:
+            decoded_message.append(mapping[char])
+        else:
+            decoded_message.append(".")
+
+    return "".join(decoded_message)
+
+
+           
+decoded_message = decode_cipher(plaintext, ciphertext)
+print(decoded_message)
+
+# 75 DMOJ problem dmopc19c3p1, Mode Finding
+
+# n = int(input())
+# num_list = list(map(int, input().split(" ")))
+
+# numbers = {}
+# for i in range(len(num_list)):
+#     number = num_list[i]
+#     if not number in numbers:
+#         numbers[number] = 1
+#     else:
+#         numbers[number] += 1
+
+# inverted_numbers = {}
+# for key in numbers:
+#     value = numbers[key]
+#     if not value in inverted_numbers:
+#         inverted_numbers[value] = [key]
+#     else:
+#         inverted_numbers[value].append(key)
+
+# max_frequency = max(inverted_numbers.keys())
+
+# modes = sorted(inverted_numbers[max_frequency])
+
+# print(" ".join(map(str, modes)))
+
+# 76.DMOJ problem coci14c2p2, Utrka(using a dictionary, set and list)
+
+
+# 77.DMOJ problem coci17c2p2, ZigZag
