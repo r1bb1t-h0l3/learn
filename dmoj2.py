@@ -670,6 +670,10 @@
 #     results_str = (str(num) for num in results)
 #     print(' '.join(results_str))
 
+
+
+
+# -------------------------------------
 # 68 Appleby Contest '20 P1 - Terrific Triangles ac20p1
 
 # def read_input():
@@ -737,6 +741,8 @@
 # for f in friends:
 #     print(f)
 
+
+# ---------------------------------------------
 #71 DMOJ problem crci06p1, Bard
 
 # def find_all_song_knowers(number_of_villagers, evening_data):
@@ -775,6 +781,9 @@
 # for villager in result:
 #     print(villager)
 
+
+
+# ------------------------------------
 #72 DMOJ problem dmopc19c5p1, Conspicuous Cryptic Checklist
 # data = list(map(int, input().split()))
 
@@ -800,6 +809,9 @@
 
 # print(completed_assignments)
 
+
+
+# --------------------------------
 # 73 DMOJ problem coci15c2p1, Marko
 # number_of_words = int(input())
 # lst_of_words = []
@@ -834,41 +846,50 @@
 
 # print(matching_words)
 
+
+
+# ---------------------------------------
 # 74 DMOJ problem ccc06s2, Attack of the CipherTexts
 
-plaintext = input()
-ciphertext = input()
-coded_message = input()
+# plaintext = input()
+# ciphertext = input()
+# coded_message = input()
 
-def decode_cipher(plaintext:str, ciphertext:str) -> str:
-    mapping = {}
+# def decode_cipher(plaintext:str, ciphertext:str, coded_message:str) -> str:
+#     mapping = {}
+#     all_chars = set("ABCDEFGHIJKLMNOPQRSTUVWXYZ ")
     
-    
-    #here can also use zip liike so:
-    # for pt_char, ct_char in zip(plaintext, ciphertext)
-    # mapping[ct_char] = pt_char
-    for i in range(len(plaintext)):
-        pt_char = plaintext[i]
-        ct_char = ciphertext[i]
-        mapping[ct_char] = pt_char
-    print(mapping)    
+#     for i in range(len(plaintext)):
+#         pt_char = plaintext[i]
+#         ct_char = ciphertext[i]
+#         mapping[ct_char] = pt_char
 
-        # decode coded_message
-    decoded_message = []
+#     # deduce missing mapping if one character is missing
+#     mapped_keys = set(mapping.keys())
+#     mapped_values = set(mapping.values())
 
-    for char in coded_message:
-        if char in mapping:
-            decoded_message.append(mapping[char])
-        else:
-            decoded_message.append(".")
+#     if len(mapped_keys) == 26:
+#         missing_cipher_char = list(all_chars - mapped_keys)[0]
+#         missing_plain_char = list(all_chars - mapped_values)[0]
+#         mapping[missing_cipher_char] = missing_plain_char
 
-    return "".join(decoded_message)
+#     # decode coded_message
+#     decoded_message = []
 
+#     for char in coded_message:
+#         if char in mapping:
+#             decoded_message.append(mapping[char])
+#         else:
+#             decoded_message.append(".")
 
+#     return "".join(decoded_message)
            
-decoded_message = decode_cipher(plaintext, ciphertext)
-print(decoded_message)
+# decoded_message = decode_cipher(plaintext, ciphertext, coded_message)
+# print(decoded_message)
 
+
+
+# ------------------------------------
 # 75 DMOJ problem dmopc19c3p1, Mode Finding
 
 # n = int(input())
@@ -896,7 +917,190 @@ print(decoded_message)
 
 # print(" ".join(map(str, modes)))
 
+
+# ----------------------
 # 76.DMOJ problem coci14c2p2, Utrka(using a dictionary, set and list)
 
+# First solution, doesn't pass test caases where the same name is used more than once
 
+# number_of_contestants = int(input())
+
+# contestants = set()
+# for i in range(number_of_contestants):
+#     contestant = input().strip()
+#     contestants.add(contestant)
+
+# finishers = set()
+# for i in range(number_of_contestants - 1):
+#     finisher = input().strip()
+#     finishers.add(finisher)
+
+# difference = contestants - finishers
+# if len(difference) == 1:
+#     print(difference.pop())
+
+# second solution which accouts for duplicate names
+# def find_non_finisher(registered: list[str], finished: list[str]):
+#     name_counts = {}
+
+#     for name in registered:
+#         name_counts[name] = name_counts.get(name, 0) + 1
+
+#     for name in finished:
+#         name_counts[name] -= 1
+
+#     for name, count in name_counts.items():
+#         if count == 1:
+#             return name    
+
+# number_of_contestants = int(input())
+# registered = [input().strip() for _ in range(number_of_contestants)]
+# finished = [input().strip() for _ in range(number_of_contestants - 1)]
+
+# print(find_non_finisher(registered, finished))
+
+
+
+# -----------------------------------
 # 77.DMOJ problem coci17c2p2, ZigZag
+# number_of_words, number_of_letters = map(int, input().strip(). split(" "))
+
+# print(number_of_words, number_of_letters) 
+
+# words = {}
+# for i in range(number_of_words):
+#     word = input().strip()
+#     first_letter = word[0]
+#     if first_letter not in words:
+#         words[first_letter] = []
+
+#     words[first_letter].append(word)
+
+# for key in words:
+#     words[key] = sorted(words[key])
+
+# letters = []
+# for i in range(number_of_letters):
+#     letter = input().strip()
+#     letters.append(letter)
+
+# # create dictinary to keep track of number of times word was used
+# words_counter = {key: 0 for key in words}
+
+# for letter in letters:
+#     if letter in words:
+#         index = words_counter[letter]
+#         print(words[letter][index])
+#         words_counter[letter] = (index + 1) % len(words[letter])
+
+
+#------------------------------
+# 78. DMOJ problem coci20c1p1, Patkice
+# cache = {}
+
+# def find_path_length(startRow: int, startCol: int, ocean_map: list[str]) -> int:
+#     known = cache.get((startRow, startCol))
+#     if known is not None: 
+#         return known
+
+#     current = ocean_map[startRow][startCol]
+#     nextRow = startRow
+#     nextCol = startCol
+#     if current == 'x':
+#         return 0
+#     elif current == '.':
+#         return -1
+#     elif current == '>':
+#         nextRow = startRow
+#         nextCol = startCol + 1
+#     elif current == 'v':
+#         nextRow = startRow + 1
+#         nextCol = startCol
+#     elif current == '<':
+#         nextRow = startRow
+#         nextCol = startCol - 1
+#     elif current == '^':
+#         nextRow = startRow - 1
+#         nextCol = startCol
+#     else:
+#         return -1
+
+#     nextPathLen = find_path_length(nextRow, nextCol, ocean_map)
+#     cache[(nextRow, nextCol)] = nextPathLen
+
+#     if nextPathLen == -1:
+#         return -1
+
+#     return nextPathLen + 1
+
+# rows, col = map(int, input().split(' '))
+
+# matrix = [input().strip() for _ in range(rows)]
+
+# #find starting and ending points
+# start = None
+# for i in range(rows):
+#     for j in range(col):
+#         if matrix[i][j] == 'o':
+#             start = (i, j)
+#             break
+
+# path_lengths = {}
+# N_length = find_path_length(start[0] - 1, start[1], matrix)
+# if N_length >= 0:
+#     path_lengths['N'] = N_length
+# E_length = find_path_length(start[0], start[1] + 1, matrix)
+# if E_length >= 0:
+#     path_lengths['E'] = E_length
+# S_length = find_path_length(start[0] + 1, start[1], matrix)
+# if S_length >= 0:
+#     path_lengths['S'] = S_length
+# W_length = find_path_length(start[0], start[1] - 1, matrix)
+# if W_length >= 0:
+#     path_lengths['W'] = W_length
+
+# if len(path_lengths) == 0:
+#     print(':(')
+# else:
+#     min_path = min(path_lengths.values())
+#     min_keys = []
+#     for key, value in path_lengths.items():
+#         if value == min_path:
+#             min_keys.append(key)
+    
+#     answer = min(min_keys)
+#     print(f':)\n{answer}')
+
+
+# ---------------------------------------------
+# 79. DMOJ problem ccc09j2, Old Fishin’ Hole
+
+
+# trout_pts = int(input())
+# pike_pts = int(input())
+# pickerel_pts = int(input())
+# max_pts = int(input())
+
+# total_combinations = 0
+
+# for trout_count in range(max_pts // trout_pts + 1):
+#     for pike_count in range(max_pts // pike_pts + 1):
+#         for pickerel_count in range(max_pts // pickerel_pts + 1):
+#             total_pts = ((trout_count * trout_pts) +
+#                         (pike_count * pike_pts) +
+#                         (pickerel_count * pickerel_pts))
+
+#             if total_pts <= max_pts and (trout_count + pike_count + pickerel_count > 0):
+#                 print(f'{trout_count} Brown Trout, {pike_count} Northern Pike, {pickerel_count} Yellow Pickerel')
+#                 total_combinations += 1
+
+# print(f'Number of ways to catch fish: {total_combinations}')
+
+
+# --------------------------------------------
+# 80. DMOJ problem ecoo16r1p2, Spindie
+
+
+
+# -------------------------------------------
+# 81. DMOJ problem cco96p2, SafeBreaker

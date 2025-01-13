@@ -1,37 +1,29 @@
-# First solution, doesn't pass test caases where the same name is used more than once
+number_of_words, number_of_letters = map(int, input().strip(). split(" "))
 
-# number_of_contestants = int(input())
+print(number_of_words, number_of_letters) 
 
-# contestants = set()
-# for i in range(number_of_contestants):
-#     contestant = input().strip()
-#     contestants.add(contestant)
+words = {}
+for i in range(number_of_words):
+    word = input().strip()
+    first_letter = word[0]
+    if first_letter not in words:
+        words[first_letter] = []
 
-# finishers = set()
-# for i in range(number_of_contestants - 1):
-#     finisher = input().strip()
-#     finishers.add(finisher)
+    words[first_letter].append(word)
 
-# difference = contestants - finishers
-# if len(difference) == 1:
-#     print(difference.pop())
+for key in words:
+    words[key] = sorted(words[key])
 
+letters = []
+for i in range(number_of_letters):
+    letter = input().strip()
+    letters.append(letter)
 
-def find_non_finisher(registered: list[str], finished: list[str]):
-    name_counts = {}
+# create dictinary to keep track of number of times word was used
+words_counter = {key: 0 for key in words}
 
-    for name in registered:
-        name_counts[name] = name_counts.get(name, 0) + 1
-
-    for name in finished:
-        name_counts[name] -= 1
-
-    for name, count in name_counts.items():
-        if count == 1:
-            return name    
-
-number_of_contestants = int(input())
-registered = [input().strip() for _ in range(number_of_contestants)]
-finished = [input().strip() for _ in range(number_of_contestants - 1)]
-
-print(find_non_finisher(registered, finished))
+for letter in letters:
+    if letter in words:
+        index = words_counter[letter]
+        print(words[letter][index])
+        words_counter[letter] = (index + 1) % len(words[letter])
