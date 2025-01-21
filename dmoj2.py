@@ -1098,9 +1098,194 @@
 
 
 # --------------------------------------------
-# 80. DMOJ problem ecoo16r1p2, Spindie
+# 80. Another Contest 8 Problem 1 - Trash Push acc8p1
+# T = int(input())
 
+# data = []
+# for _ in range(T):
+#     N, K = list(map(int, input().split()))
+#     if N % K  != 0:
+#         data.append(N//K + 1)
+#     else:    
+#         answer = N // K
+#         data.append(answer)
+
+# for d in data:
+#     print(d)
+
+
+# ---------------------------------------------
+# 81. Another Contest 8 Problem 2 - Unnecessary Trash Push - acc8p2
+
+# nr_test_cases = int(input())
+
+# trash_pushes = []
+# for _ in range(nr_test_cases):
+#     N, K = list(map(int, input().split()))
+#     trash_daily = list(map(int, input().split()))
+
+#     nr_of_trash_pushes = 0
+#     leftovers = 0
+
+#     for i in range(N):
+#         leftovers += trash_daily[i]
+#         if leftovers >= K:
+#             nr_of_trash_pushes += 1
+#             leftovers = 0
+
+#     trash_pushes.append(nr_of_trash_pushes)
+
+
+# for p in trash_pushes:
+#     print(p)
+
+
+
+# --------------------------------------------
+# 82. DMOJ problem ecoo16r1p2, Spindie
+# def is_possible_result(integers: list[int]) -> set[int]:
+#     twoIntegersCombinations = set()
+#     for i1 in range(len(integers)):
+#         n1 = integers[i1]
+#         for i2 in range(i1, len(integers)):
+#             n2 = integers[i2]
+#             twoIntegersCombinations.add(n1 * n2)
+#             twoIntegersCombinations.add(n1 + n2)
+        
+#     threeIntegersCombinations = set()
+#     for n in integers:
+#         for combination in twoIntegersCombinations:
+#             threeIntegersCombinations.add(n * combination)
+#             threeIntegersCombinations.add(n + combination)
+#     return threeIntegersCombinations
+            
+# input_sets = 10
+
+# result = []
+
+# for _ in range(input_sets):
+#     n = int(input())
+#     integers = list(set(map(int, input().split())))
+#     targets = list(map(int, input().split()))
+
+#     combinations = is_possible_result(integers)
+#     current_result = []
+#     for target in targets:
+#         possible = 'T' if target in combinations else 'F'
+#         current_result.append(possible)
+
+#     result.append("".join(current_result))
+                
+# print("\n".join(result))
 
 
 # -------------------------------------------
-# 81. DMOJ problem cco96p2, SafeBreaker
+#83.  DMOJ problem acc9p1 Another Contest 9 Problem 1 - Black Room Boy
+# nr_test_cases = int(input())
+
+# answers = []
+# for test_case in range(nr_test_cases):
+#     dimensions = set()
+#     data = list(map(int, input().split()))
+
+#     for i in range(len(data)):
+#         for j in range(i + 1, len(data)):
+#             dimensions.add((data[i] + data[j], sum(data) - (data[i] + data[j])))
+
+#     sorted_dimensions = sorted(dimensions)
+#     answers.append((len(dimensions), sorted_dimensions))
+
+# for number_of_dimensions, dimensions in answers:
+#     print(number_of_dimensions)
+#     for a,b in dimensions:
+#         print(a,b)
+
+
+# -------------------------------------------
+#84. DMOJ problem acmtryouts0a ACM U of T Tryouts C0 A - Max Flow
+
+# t = int(input()) # number of test cases
+
+# answers = []
+# for _ in range(t):
+#     numbers = set()
+#     n = int(input()) #number of integers
+#     for _ in range(n):
+#         num = int(input())
+#         numbers.add(num) 
+    
+#     max_num = max(numbers)
+#     answers.append(max_num)
+
+# for answer in answers:
+#     print(answer)
+
+
+# -------------------------------------------
+#85. DMOJ problem acmtryouts1a ACM U of T Tryouts C1 A - Rock Paper Scissors Fox
+
+# n = int(input())
+
+# turns = []
+# for _ in range(n):
+#     turn = input().strip()
+#     turns.append(turn)
+
+# answers = []
+# for turn in turns:
+#     if turn == "Scissors":
+#         answers.append("Rock")
+#     elif turn == "Rock":
+#         answers.append("Paper")
+#     elif turn == "Paper":
+#         answers.append("Scissors")
+#     elif turn == "Fox":
+#         answers.append("Foxen")
+#     else:
+#         break
+
+# for answer in answers:
+#     print(answer)
+
+# -------------------------------------------
+#87. DMOJ problem acmtryouts3a ACM U of T Tryouts C3 A - A Research Project
+
+# g = int(input())
+
+# answers = []
+# for _ in range(g):
+#     smallest = 100
+#     largest = 0
+#     n = int(input())
+#     scores = list(map(int, input().split()))
+#     for i in range(n):
+#         if scores[i] < smallest:
+#             smallest = scores[i]
+#         if scores[i] > largest:
+#             largest = scores[i]
+
+#     answers.append((smallest, largest))
+
+# for answer in answers:
+#     print(answer[0], answer[1])
+    
+
+# -------------------------------------------
+#88. DMOJ problem acmtryouts3b ACM U of T Tryouts C3 B - A Careful Reply
+# n = int(input())
+
+# replies = []
+# for _ in range(n):
+#     line = input()
+#     heart = line.count('<3')
+#     if heart > 0:
+#         reply = ' '.join(['<3'] * (heart + 1))
+#     else:
+#         reply = '<3'
+#     replies.append(reply)      
+
+# for reply in replies:
+#     print(reply)
+
+# ??. DMOJ problem cco96p2, SafeBreaker
+
