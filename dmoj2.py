@@ -1272,6 +1272,7 @@
 
 # -------------------------------------------
 #88. DMOJ problem acmtryouts3b ACM U of T Tryouts C3 B - A Careful Reply
+
 # n = int(input())
 
 # replies = []
@@ -1287,5 +1288,300 @@
 # for reply in replies:
 #     print(reply)
 
+
+# -------------------------------------------
+#88. DMOJ problem ahscc1p1 Arcadia Computing Contest 1 P1 - Test Anxiety
+
+# current_score = int(input())
+# nr_assignments = int(input())
+# TARGET = 80
+
+# answer = TARGET * (nr_assignments + 1) - (current_score * nr_assignments)
+# if answer > 100:
+#     print("-1")
+# elif answer <= 0:
+#     print("0")
+# else: 
+#     print(answer)
+
+# -------------------------------------------
+#89. DMOJ problem alphabetscore Alphabet Score
+
+# word = input()
+# alphabet_score = 0
+
+# for letter in word:
+#     alphabet_score += (ord(letter) - ord('a') + 1)
+
+# -------------------------------------------
+#90. DMOJ problem ampl2023p2 Amplitude Hackathon '23 Problem 2 - Gigatron Lag
+# N = int(input())
+
+# partition_lags = {}
+# global_offset = 0
+# output = []
+
+# for i in range(N):
+#     line = input().split()
+#     operation = line[0]
+
+#     if operation == "ADD":
+#         p, x = int(line[1]), int(line[2])
+#         if p not in partition_lags:
+#             partition_lags[p] = 0
+#         partition_lags[p] += x
+
+#     elif operation == "ADDALL":
+#         x = int(line[1])
+#         global_offset += x
+        
+    
+#     elif operation == "PROCESS":
+#         p, x = int(line[1]), int(line[2])
+#         if p not in partition_lags:
+#             partition_lags[p] = 0
+#         effective_lag = partition_lags[p] + global_offset
+#         to_process = min(x, effective_lag)
+#         partition_lags[p] -= to_process
+    
+#     elif operation == "PROCESSALL":
+#         x = int(line[1])
+#         global_offset -= x
+#         if global_offset <= 0:
+#             global_offset = 0
+#         else:
+#             for p in list(partition_lags.keys()):
+#                 effective_lag = partition_lags[p] + global_offset
+#                 if effective_lag <= 0:
+#                     partition_lags[p] = 0
+#                 else:
+#                     partition_lags[p] = effective_lag - global_offset
+
+#     elif operation == "LAG":
+#         p = int(line[1])
+#         effective_lag = partition_lags.get(p, 0) + global_offset
+#         output.append(str(effective_lag))
+
+#     elif operation == "MAXLAG":
+#         if partition_lags:
+#             max_lag = max(partition_lags.values()) + global_offset 
+#         else:
+#             max_lag = global_offset
+#         output.append(str(max_lag))
+
+# for o in output:
+#     print(o)
+
+# -------------------------------------------
+#91. DMOJ problem ampl2023practicep1 Amplitude Hackathon '23 Practice Problem 1 - Gigatron EPS Modulo 998244353
+# n = int(input())
+
+# input = list(map(int, input().split()))
+
+# total = 0
+# for i in range(n):
+#     total += input[i]
+
+# ans = total % 998244353
+
+# print(ans)
+
+
+# -------------------------------------------
+#91. DMOJ problem ampl2023practicep4 Amplitude Hackathon '23 Practice Problem 4 - Gigatron Autoscaling
+
+# nr_requests, pods = map(int, input().split())
+# MIN_PODS = 1
+# MAX_PODS = 1024
+
+# lst = []
+# for _ in range(nr_requests):
+#     line = input().split()
+#     operation = line[0]
+#     x = int(line[1])
+
+#     if operation == "INC":
+#         pods += x
+#         if pods > MAX_PODS:
+#             pods = 1024
+#         lst.append(pods)
+#     elif operation == "DEC":
+#         pods -= x
+#         if pods < MIN_PODS:
+#             pods = 1https://dmoj.ca/problem/ampl2024sp1
+#         lst.append(pods)
+
+
+# for l in lst:
+#     print(l)
+        
+
+# -------------------------------------------
+#92. DMOJ problem 2024sp1 Amplitude Hackathon Summer '24 Problem 1 - Is Jeffrey in the Office?
+
+# day = input()
+
+# if day == 'Saturday' or day == 'Sunday':
+#     print('NO')
+# else:
+#     print('YES')
+
+# -------------------------------------------
+#93. DMOJ problem ampl2024sp2 Amplitude Hackathon Summer '24 Problem 2 - Feature Requests
+
+# n = int(input())
+
+# feature_counts = {}
+
+# for _ in range(n):
+#     line = input().split()
+#     for feature in line[1:]:
+#         if feature not in feature_counts:
+#             feature_counts[feature] = 1
+#         else:
+#             feature_counts[feature] += 1
+
+# sorted_data = sorted(feature_counts.items(), key=lambda x: (-x[1], x[0]))
+
+# for key, value in sorted_data:
+#     print(key, value)
+
+# -------------------------------------------
+#93. DMOJ problem ampl2024spracticep1 Amplitude Hackathon Summer '24 Practice Problem 1 - Jeffrey's Favorite Integer
+
+# random_guess = 50
+# low, high = 1, 100
+# print(random_guess)
+
+# while True:
+#     inpt = input()
+#     if inpt == 'CORRECT':
+#         break
+#     elif inpt == 'GREATER':
+#         low = random_guess + 1
+#         random_guess = (low + high)//2
+#         print(random_guess)
+#     elif inpt == 'LESS':
+#         high = random_guess - 1
+#         random_guess = (low + high)//2
+#         print(random_guess)
+    
+# -------------------------------------------
+#94. DMOJ problem ampl2024wp1 Amplitude Hackathon Winter '24 Problem 1 - Twila's Walk
+
+# inpt = int(input())
+# result = inpt ** 2
+# print(result)
+
+# -------------------------------------------
+#95. DMOJ problem ampl2024wp2 Amplitude Hackathon Winter '24 Problem 2 - Fog Machine
+
+# import math
+
+# def max_initial_v(y0):
+#     root = (-1 + math.sqrt(1+8 * y0)) / 2
+#     v_init = int(root)
+
+#     while (v_init * (v_init + 1)) // 2 >= y0:
+#         v_init -= 1
+    
+#     return v_init
+
+# y0 = int(input())
+# print(max_initial_v(y0))
+
+# -------------------------------------------
+# 96. DMOJ problem aplusb, A plus B
+
+# n = int(input())
+
+# answ = []
+# for _ in range(n):
+#     line = list(map(int, input().split()))
+#     x, y = line[0], line[1]
+
+#     answ.append(x + y)
+
+# for a in answ:
+#     print(a)
+
+# -------------------------------------------
+# 96. DMOJ problem art0, Art Academy 0: Prologue
+
+# n = int(input())
+# numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+# result = []
+# for _ in range(n):
+#     output = []
+#     word = input().upper()
+#     for i in range(len(word)):
+#         if word[i] == "A":
+#             output.append("Hi! ")
+#         if word[i] == "E":
+#             output.append("Bye! ")
+#         if word[i] == "I":
+#             output.append("How are you? ")
+#         if word[i] == "O":
+#             output.append("Follow me! ")
+#         if word[i] == "U":
+#             output.append("Help! ")
+#         if word[i] in numbers:
+#             output.append("Yes! ")
+#         else:
+#             pass
+#     output_str = ''.join(output)
+#     result.append(output_str)
+
+# [print(r) for r in result]
+
+# -------------------------------------------
+# 97. DMOJ problem avatarearth, PEG Test '14 - Earth
+
+# boulder = list(map(int, input().split()))
+# bx, by = boulder[0], boulder[1]
+
+# cage = list(map(int, input().split()))
+
+# cx1, cy1, cx2, cy2 = cage[0], cage[1], cage[2], cage[3]
+
+# if  cx1<= bx <= cx2 and cy1 <= by <= cy2:
+#     print("Yes")
+# else:
+#     print("No") 
+
+# -------------------------------------------
+# 98. DMOJ problem avatarwater, PEG Test '14 - Water
+
+# jars = []
+# for _ in range(3):
+#     j = int(input())
+#     jars.append(j)
+
+# fish = max(jars) - min(jars)
+# print(fish)
+
+# -------------------------------------------
+# 99. DMOJ problem bf1, List Minimum
+
+n = int(input())
+
+lst = []
+for _ in range(n):
+    nr = int(input())
+    lst.append(nr)
+
+minimums = []
+while len(lst) > 0:
+    minimum = min(lst)
+    minimums.append(minimum)
+    min_index = lst.index(minimum)
+    lst.pop(min_index)
+
+        
+[print(m) for m in minimums]
+
+
+# -------------------------------------------
 # ??. DMOJ problem cco96p2, SafeBreaker
 
