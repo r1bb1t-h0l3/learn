@@ -1562,24 +1562,37 @@
 # print(fish)
 
 # -------------------------------------------
-# 99. DMOJ problem bf1, List Minimum
+# 99. DMOJ problem bf1, List Minimum - 2 solutions, one straghtforward, one through sort
 
-n = int(input())
+# n = int(input())
 
-lst = []
-for _ in range(n):
-    nr = int(input())
-    lst.append(nr)
+# lst = []
+# for _ in range(n):
+#     nr = int(input())
+#     lst.append(nr)
 
-minimums = []
-while len(lst) > 0:
-    minimum = min(lst)
-    minimums.append(minimum)
-    min_index = lst.index(minimum)
-    lst.pop(min_index)
+# minimums = []
+# while len(lst) > 0:
+#     minimum = min(lst)
+#     minimums.append(minimum)
+#     min_index = lst.index(minimum)
+#     lst.pop(min_index)
 
+# lst.sort()
         
-[print(m) for m in minimums]
+# [print(l) for l in lst]
+
+# -------------------------------------------
+# 100. DMOJ problem bf1easy, List Minimum (Easy)
+
+# n = int(input())
+
+# i = 1
+# while i < n:
+#     print(i, end=' ')
+#     i += 1
+
+# print(n)
 
 
 # -------------------------------------------
